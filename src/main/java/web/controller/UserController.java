@@ -13,14 +13,13 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     @Autowired
-    public UserController(UserService carService) {
-        this.userService = carService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping ("/users")
     public String getUsers(Model model){
-        List<User> users = userService.getAllUser();
-        model.addAttribute("users",users);
+        model.addAttribute("users",userService.getAllUser());
         return "users";
     }
 
